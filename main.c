@@ -11,6 +11,16 @@
 #include <arpa/inet.h>
 #include <time.h> //to calculate elapsed time
 
+void ascii_menu(){
+    puts("  __________                                    ___________________   ____ ___                                \n"
+         "  \\______   \\_____    ____   __________   _____ \\_   _____/\\______ \\ |    |   \\__  _  _______ _______   ____  \n"
+         "   |       _/\\__  \\  /    \\ /  ___/  _ \\ /     \\ |    __)_  |    |  \\|    |   /\\ \\/ \\/ /\\__  \\\\_  __ \\_/ __ \\ \n"
+         "   |    |   \\ / __ \\|   |  \\\\___ (  <_> )  Y Y  \\|        \\ |    `   \\    |  /  \\     /  / __ \\|  | \\/\\  ___/ \n"
+         "   |____|_  /(____  /___|  /____  >____/|__|_|  /_______  //_______  /______/    \\/\\_/  (____  /__|    \\___  >\n"
+         "          \\/      \\/     \\/     \\/            \\/        \\/         \\/                        \\/            \\/ \n"
+         "");
+}
+
 void handleErrors(void) {
     ERR_print_errors_fp(stderr);
     abort();
@@ -339,9 +349,10 @@ int main(int argc, char *argv[]) {
     //printf("%d arguments \n", argc - 1); //uncomment to see number of arguments
 
     if (argc == 1) {
-        printf("---------------------- Manuel d'utilisation ------------------------\n"
-               "------------ Pour chiffrer le répertoire : -crypt <PATH> -----------\n"
-               "---- Pour déchiffrer le répertoire : -decrypt <PATH> <KEY> <IV> ----\n");
+        ascii_menu();
+        printf("                ------------------------- Way to use ------------------------------\n"
+               "                ------------------- To encrypt : -crypt <PATH> --------------------\n"
+               "                -------------- To decrypt : -decrypt <PATH> <KEY> <IV> ------------\n");
         exit(0);
     }
 
